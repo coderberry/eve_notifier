@@ -1,0 +1,15 @@
+<% form_for @account do |f| %>
+  <%= f.error_messages %>
+  <p>
+    <%= f.label :eve_user_id, "User ID" %><br/>
+    <%= f.text_field :eve_user_id %>
+  </p>
+  <p>
+    <%= f.label :eve_api_key, "API Key" %><br/>
+    <%= f.text_field :eve_api_key %>
+  </p>
+  <p>
+    <%= f.submit %>
+    or <%= link_to "Cancel", accounts_path %>
+  </p>
+<% end %>

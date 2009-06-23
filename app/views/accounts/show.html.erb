@@ -1,0 +1,10 @@
+<h1>Characters</h1>
+
+<% @data.each do |char_id, info| %>
+  <%= info[:character].name %>
+  <% if info[:skill_in_training].skill_in_training %>
+    is currently training until <%= info[:skill_in_training].end_time %>
+  <% else %>
+    is not training at the moment.
+  <% end %>
+<% end %>

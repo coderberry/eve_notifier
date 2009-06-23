@@ -1,0 +1,24 @@
+<h1>My EVE Accounts</h1>
+
+
+<table width="100%" class="hor-minimalist-b">
+  <tr>
+    <th class="col">User ID</th>
+    <th class="col">API Key</th>
+    <th class="col" style="text-align: right;">
+      <%= link_to "Add EVE Account", new_account_path %> |
+      <%= link_to "Logout", logout_path %>
+    </th>
+  </tr>
+  <% @accounts.each do |account| %>
+    <tr>
+      <td><%= account.eve_user_id %></td>
+      <td><%= account.eve_api_key %></td>
+      <td style="text-align: right;">
+        <%= link_to "Check Status", account_path(account) %> |
+        <%= link_to "Edit", edit_account_path(account) %> |
+        <%= link_to "Delete", account_path(account), :method => :delete, :confirm => "Are you sure?" %>
+      </td>
+    </tr>
+  <% end %>
+</table>

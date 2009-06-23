@@ -1,0 +1,865 @@
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mselect sqlite_version(*)[0m
+  [4;36;1mSQL (1.9ms)[0m   [0;1mCREATE TABLE "schema_migrations" ("version" varchar(255) NOT NULL) [0m
+  [4;35;1mSQL (2.2ms)[0m   [0mCREATE UNIQUE INDEX "unique_schema_migrations" ON "schema_migrations" ("version")[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090623214902)
+  [4;36;1mSQL (0.9ms)[0m   [0;1mCREATE TABLE "users" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "username" varchar(255), "email" varchar(255), "password_hash" varchar(255), "password_salt" varchar(255), "created_at" datetime, "updated_at" datetime) [0m
+  [4;35;1mSQL (0.2ms)[0m   [0mINSERT INTO schema_migrations (version) VALUES ('20090623214902')[0m
+  [4;36;1mSQL (0.3ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.1ms)[0m   [0mSELECT version FROM schema_migrations[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-06-23 15:49:26) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 17ms (View: 16, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-06-23 15:49:27) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 71ms (View: 11, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing UsersController#create (for 127.0.0.1 at 2009-06-23 15:49:37) [POST]
+  Parameters: {"commit"=>"Sign up", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "controller"=>"users", "user"=>{"password_confirmation"=>"[FILTERED]", "username"=>"cavneb", "password"=>"[FILTERED]", "email"=>"cavneb@gmail.com"}}
+  [4;36;1mUser Exists (0.1ms)[0m   [0;1mSELECT "users".id FROM "users" WHERE ("users"."username" = 'cavneb') LIMIT 1[0m
+  [4;35;1mUser Exists (0.1ms)[0m   [0mSELECT "users".id FROM "users" WHERE ("users"."email" = 'cavneb@gmail.com') LIMIT 1[0m
+  [4;36;1mUser Create (0.4ms)[0m   [0;1mINSERT INTO "users" ("created_at", "updated_at", "username", "password_salt", "password_hash", "email") VALUES('2009-06-23 21:49:37', '2009-06-23 21:49:37', 'cavneb', 'dd8e38b2cdea0d9528864e8276ed3421d00fc438', '3f0c6723a6d5481b6f03561f81d57bb32b336a56', 'cavneb@gmail.com')[0m
+
+NameError (undefined local variable or method `root_url' for #<UsersController:0x265fe94>):
+  app/controllers/users_controller.rb:11:in `create'
+
+Rendered rescues/_trace (31.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-23 15:51:37) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 10ms (View: 9, DB: 0) | 200 OK [http://localhost/]
+  [4;36;1mSQL (0.6ms)[0m   [0;1m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;35;1mSQL (0.2ms)[0m   [0mSELECT version FROM schema_migrations[0m
+Migrating to CreateUsers (20090623214902)
+Migrating to CreateAccounts (20090623220508)
+  [4;36;1mSQL (0.1ms)[0m   [0;1mselect sqlite_version(*)[0m
+  [4;35;1mSQL (0.6ms)[0m   [0mCREATE TABLE "accounts" ("id" INTEGER PRIMARY KEY AUTOINCREMENT NOT NULL, "eve_user_id" varchar(255), "eve_api_key" varchar(255), "user_id" integer, "created_at" datetime, "updated_at" datetime) [0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mINSERT INTO schema_migrations (version) VALUES ('20090623220508')[0m
+  [4;35;1mSQL (0.3ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.1ms)[0m   [0;1mSELECT version FROM schema_migrations[0m
+  [4;35;1mSQL (0.4ms)[0m   [0m SELECT name
+ FROM sqlite_master
+ WHERE type = 'table' AND NOT name = 'sqlite_sequence'
+[0m
+  [4;36;1mSQL (0.0ms)[0m   [0;1mPRAGMA index_list("accounts")[0m
+  [4;35;1mSQL (0.0ms)[0m   [0mPRAGMA index_list("users")[0m
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-23 16:09:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 10ms (View: 8, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:10:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.2ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 36ms (View: 7, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:10:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+
+ActionView::TemplateError (undefined local variable or method `new_account_path' for #<ActionView::Base:0x231b774>) on line #4 of app/views/accounts/index.html.erb:
+1: <h1>Accounts</h1>
+2: <p>Find me in app/views/accounts/index.html.erb</p>
+3: 
+4: <%= link_to "Add EVE Account", new_account_path %>
+5: 
+6: <% @accounts.each do |account| %>
+7:   <%= account.to_yaml %>
+
+    app/views/accounts/index.html.erb:4
+
+Rendered rescues/_trace (118.3ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:10:52) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.2ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 34ms (View: 8, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:10:54) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Completed in 12ms (View: 4, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:13:09) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.6ms)
+Completed in 22ms (View: 10, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:13:23) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.8ms)
+Completed in 18ms (View: 6, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:13:39) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.9ms)
+Completed in 18ms (View: 5, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:13:56) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.8ms)
+Completed in 17ms (View: 5, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:13:58) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_user_id"=>""}, "controller"=>"accounts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActionView::MissingTemplate (Missing template accounts/create.erb in view path app/views):
+  
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:16:03) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.8ms)
+Completed in 16ms (View: 5, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:16:05) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_user_id"=>""}, "controller"=>"accounts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+
+ActionView::MissingTemplate (Missing template accounts/_new.erb in view path app/views):
+  app/controllers/accounts_controller.rb:19:in `create'
+
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:16:15) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.0ms)
+Completed in 15ms (View: 2, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:16:16) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_user_id"=>""}, "controller"=>"accounts"}
+  [4;35;1mUser Load (0.3ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.7ms)
+Completed in 93ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:16:30) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_user_id"=>"86367590638745A19D2CBA2A252A686EEE7B98D6CBF14FF2AA4345A8FEC21B1F"}, "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.8ms)
+Completed in 18ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:16:46) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_user_id"=>"86367590638745A19D2CBA2A252A686EEE7B98D6CBF14FF2AA4345A8FEC21B1F"}, "controller"=>"accounts"}
+  [4;35;1mUser Load (0.6ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (2.5ms)
+Completed in 30ms (View: 12, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:16:57) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_api_key"=>"86367590638745A19D2CBA2A252A686EEE7B98D6CBF14FF2AA4345A8FEC21B1F", "eve_user_id"=>"5131295"}, "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Create (0.5ms)[0m   [0mINSERT INTO "accounts" ("created_at", "updated_at", "eve_api_key", "eve_user_id", "user_id") VALUES('2009-06-23 22:16:57', '2009-06-23 22:16:57', '86367590638745A19D2CBA2A252A686EEE7B98D6CBF14FF2AA4345A8FEC21B1F', '5131295', 1)[0m
+Redirected to http://localhost:3000/accounts
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:16:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.5ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:18:00) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 15ms (View: 5, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:18:21) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 85ms (View: 7, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:18:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 17ms (View: 6, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:18:36) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:18:37) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.6ms)
+Completed in 15ms (View: 5, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:19:10) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.1ms)
+Completed in 14ms (View: 2, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:19:15) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_api_key"=>"A3ACABEE6C77498FB952D265B6F928F9CE4FA2514FE8469692661735D0692EF7", "eve_user_id"=>"5084566"}, "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Create (0.4ms)[0m   [0mINSERT INTO "accounts" ("created_at", "updated_at", "eve_api_key", "eve_user_id", "user_id") VALUES('2009-06-23 22:19:15', '2009-06-23 22:19:15', 'A3ACABEE6C77498FB952D265B6F928F9CE4FA2514FE8469692661735D0692EF7', '5084566', 1)[0m
+Redirected to http://localhost:3000/accounts
+Completed in 16ms (DB: 1) | 302 Found [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:19:15) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 21ms (View: 10, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:19:18) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (2.0ms)
+Completed in 28ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#create (for 127.0.0.1 at 2009-06-23 16:19:23) [POST]
+  Parameters: {"commit"=>"Save changes", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "account"=>{"eve_api_key"=>"CFBCCCBCDC0E4730BE94C57A854238108B2803C0C55141ACB3574C99512ED6CE", "eve_user_id"=>"5116272"}, "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Create (0.4ms)[0m   [0;1mINSERT INTO "accounts" ("created_at", "updated_at", "eve_api_key", "eve_user_id", "user_id") VALUES('2009-06-23 22:19:23', '2009-06-23 22:19:23', 'CFBCCCBCDC0E4730BE94C57A854238108B2803C0C55141ACB3574C99512ED6CE', '5116272', 1)[0m
+Redirected to http://localhost:3000/accounts
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:19:23) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.6ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:24:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.4ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 19ms (View: 8, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:24:28) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.3ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+ERROR: compiling _run_erb_app47views47accounts47show46html46erb RAISED compile error
+/Users/berry/Projects/eve_notifier/app/views/accounts/show.html.erb:3: syntax error, unexpected kDO, expecting kEND
+;  @data do |d| ; @output_buffer.concat "\n  "
+           ^
+/Users/berry/Projects/eve_notifier/app/views/accounts/show.html.erb:6: syntax error, unexpected kENSURE, expecting $end
+Function body:           def _run_erb_app47views47accounts47show46html46erb(local_assigns)
+            old_output_buffer = output_buffer;;@output_buffer = '';  __in_erb_template=true ; @output_buffer.concat "<h1>Characters</h1>\n\n"
+
+;  @data do |d| ; @output_buffer.concat "\n  "
+; @output_buffer.concat(( d[:character].name ).to_s); @output_buffer.concat " is currently training\n"
+;  end ; @output_buffer
+          ensure
+            self.output_buffer = old_output_buffer
+          end
+Backtrace: /Users/berry/Projects/eve_notifier/app/views/accounts/show.html.erb:6:in `compile!'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:61:in `compile'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_view/renderable.rb:28:in `render'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_view/template.rb:194:in `render_template'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:260:in `render'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:343:in `_render_with_layout'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_view/base.rb:257:in `render'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1241:in `render_for_file'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:937:in `render_without_benchmark'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/berry/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/berry/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:51:in `render'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1317:in `default_render'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:1323:in `perform_action_without_filters'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:617:in `call_filters'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:610:in `perform_action_without_benchmark'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/berry/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/opt/local/lib/ruby/1.8/benchmark.rb:308:in `realtime'
+/Users/berry/.gem/ruby/1.8/gems/activesupport-2.3.2/lib/active_support/core_ext/benchmark.rb:17:in `ms'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/benchmarking.rb:68:in `perform_action_without_rescue'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/rescue.rb:160:in `perform_action_without_flash'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/flash.rb:141:in `perform_action'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `send'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:523:in `process_without_filters'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/filters.rb:606:in `process'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:391:in `process'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/base.rb:386:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/routing/route_set.rb:433:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:88:in `dispatch'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:111:in `_call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:82:in `initialize'
+/Users/berry/.gem/ruby/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Users/berry/.gem/ruby/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:29:in `call'
+/Users/berry/.gem/ruby/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/query_cache.rb:34:in `cache'
+/Users/berry/.gem/ruby/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:9:in `cache'
+/Users/berry/.gem/ruby/1.8/gems/activerecord-2.3.2/lib/active_record/query_cache.rb:28:in `call'
+/Users/berry/.gem/ruby/1.8/gems/activerecord-2.3.2/lib/active_record/connection_adapters/abstract/connection_pool.rb:361:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/head.rb:9:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/methodoverride.rb:24:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/params_parser.rb:15:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/rewindable_input.rb:25:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/session/cookie_store.rb:93:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/reloader.rb:9:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/failsafe.rb:11:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `synchronize'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/lock.rb:11:in `call'
+/Users/berry/.gem/ruby/1.8/gems/actionpack-2.3.2/lib/action_controller/dispatcher.rb:106:in `call'
+/Users/berry/.gem/ruby/1.8/gems/rails-2.3.2/lib/rails/rack/static.rb:31:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:46:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `each'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/urlmap.rb:40:in `call'
+/Users/berry/.gem/ruby/1.8/gems/rails-2.3.2/lib/rails/rack/log_tailer.rb:17:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/content_length.rb:13:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/chunked.rb:15:in `call'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:61:in `process'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:159:in `process_client'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `each'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:158:in `process_client'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `initialize'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `new'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:285:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `initialize'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `new'
+/opt/local/lib/ruby/gems/1.8/gems/mongrel-1.1.5/lib/mongrel.rb:268:in `run'
+/opt/local/lib/ruby/gems/1.8/gems/rack-1.0.0/lib/rack/handler/mongrel.rb:34:in `run'
+/Users/berry/.gem/ruby/1.8/gems/rails-2.3.2/lib/commands/server.rb:111
+/opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:31:in `gem_original_require'
+/opt/local/lib/ruby/vendor_ruby/1.8/rubygems/custom_require.rb:31:in `require'
+./script/server:3
+
+ActionView::TemplateError (compile error
+/Users/berry/Projects/eve_notifier/app/views/accounts/show.html.erb:3: syntax error, unexpected kDO, expecting kEND
+;  @data do |d| ; @output_buffer.concat "\n  "
+           ^
+/Users/berry/Projects/eve_notifier/app/views/accounts/show.html.erb:6: syntax error, unexpected kENSURE, expecting $end) on line #3 of app/views/accounts/show.html.erb:
+1: <h1>Characters</h1>
+2: 
+3: <% @data do |d| %>
+4:   <%= d[:character].name %> is currently training
+5: <% end %>
+
+    app/views/accounts/show.html.erb:6:in `compile!'
+
+Rendered rescues/_trace (118.7ms)
+Rendered rescues/_request_and_response (1.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:24:36) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+
+ActionView::TemplateError (Symbol as array index) on line #4 of app/views/accounts/show.html.erb:
+1: <h1>Characters</h1>
+2: 
+3: <% @data.each do |d| %>
+4:   <%= d[:character].name %> is currently training
+5: <% end %>
+
+    app/views/accounts/show.html.erb:4:in `[]'
+    app/views/accounts/show.html.erb:4
+    app/views/accounts/show.html.erb:3:in `each'
+    app/views/accounts/show.html.erb:3
+
+Rendered rescues/_trace (38.2ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:24:48) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 699ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts/1]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:25:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.3ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 934ms (View: 78, DB: 0) | 200 OK [http://localhost/accounts/1]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:25:34) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.7ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 714ms (View: 3, DB: 1) | 200 OK [http://localhost/accounts/1]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:25:55) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 715ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts/1]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:26:33) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 723ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts/1]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:26:44) [GET]
+  Parameters: {"action"=>"show", "id"=>"3", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 3 AND ("accounts".user_id = 1)) [0m
+
+Reve::Exceptions::AuthenticationFailure ((203) Authentication failure.):
+  app/controllers/accounts_controller.rb:47:in `show'
+
+Rendered rescues/_trace (40.9ms)
+Rendered rescues/_request_and_response (0.3ms)
+Rendering rescues/layout (internal_server_error)
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:26:48) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.4ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 15ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:26:49) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 2 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 731ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts/2]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:27:21) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;36;1mAccount Load (0.2ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts"."id" = 2 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 711ms (View: 3, DB: 0) | 200 OK [http://localhost/accounts/2]
+
+
+Processing AccountsController#new (for 127.0.0.1 at 2009-06-23 16:27:49) [GET]
+  Parameters: {"action"=>"new", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/new
+Rendered accounts/_form (1.0ms)
+Completed in 13ms (View: 2, DB: 0) | 200 OK [http://localhost/accounts/new]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:27:50) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 14ms (View: 3, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:30:56) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 19ms (View: 9, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:31:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 19ms (View: 7, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:31:30) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 17ms (View: 6, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:31:39) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 16ms (View: 6, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:32:04) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 16ms (View: 6, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#edit (for 127.0.0.1 at 2009-06-23 16:32:06) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Load (0.2ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/edit
+Rendered accounts/_form (2.2ms)
+Completed in 16ms (View: 6, DB: 0) | 200 OK [http://localhost/accounts/1/edit]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:32:08) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 13ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#edit (for 127.0.0.1 at 2009-06-23 16:32:10) [GET]
+  Parameters: {"action"=>"edit", "id"=>"1", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Load (0.2ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/edit
+Rendered accounts/_form (2.9ms)
+Completed in 16ms (View: 4, DB: 0) | 200 OK [http://localhost/accounts/1/edit]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:32:11) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:32:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 16ms (View: 6, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:32:57) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.4ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#destroy (for 127.0.0.1 at 2009-06-23 16:33:03) [DELETE]
+  Parameters: {"action"=>"destroy", "_method"=>"delete", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "id"=>"3", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts"."id" = 3 AND ("accounts".user_id = 1)) [0m
+  [4;36;1mAccount Destroy (0.4ms)[0m   [0;1mDELETE FROM "accounts" WHERE "id" = 3[0m
+Redirected to http://localhost:3000/accounts
+Completed in 17ms (DB: 1) | 302 Found [http://localhost/accounts/3]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:33:03) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.3ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:33:25) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.4ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-06-23 16:33:26) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing WelcomeController#index (for 127.0.0.1 at 2009-06-23 16:33:26) [GET]
+  Parameters: {"action"=>"index", "controller"=>"welcome"}
+Rendering template within layouts/application
+Rendering welcome/index
+Completed in 7ms (View: 5, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-06-23 16:33:47) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 8ms (View: 6, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing UsersController#new (for 127.0.0.1 at 2009-06-23 16:33:50) [GET]
+  Parameters: {"action"=>"new", "controller"=>"users"}
+Rendering template within layouts/application
+Rendering users/new
+Completed in 13ms (View: 8, DB: 0) | 200 OK [http://localhost/signup]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-06-23 16:33:52) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/login]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-06-23 16:33:55) [POST]
+  Parameters: {"commit"=>"Log in", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "controller"=>"sessions", "login"=>"cavneb", "password"=>"[FILTERED]"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'cavneb') LIMIT 1[0m
+Redirected to http://localhost:3000/
+Completed in 11ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-06-23 16:33:55) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-06-23 16:34:14) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-06-23 16:34:17) [POST]
+  Parameters: {"commit"=>"Log in", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "controller"=>"sessions", "login"=>"cavneb", "password"=>"[FILTERED]"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."username" = 'cavneb') LIMIT 1[0m
+Redirected to http://localhost:3000/accounts
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:34:17) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.4ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 16ms (View: 7, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:34:20) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;36;1mAccount Load (0.3ms)[0m   [0;1mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 13ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing SessionsController#destroy (for 127.0.0.1 at 2009-06-23 16:34:31) [GET]
+  Parameters: {"action"=>"destroy", "controller"=>"sessions"}
+Redirected to http://localhost:3000/
+Completed in 2ms (DB: 0) | 302 Found [http://localhost/logout]
+
+
+Processing SessionsController#new (for 127.0.0.1 at 2009-06-23 16:34:31) [GET]
+  Parameters: {"action"=>"new", "controller"=>"sessions"}
+Rendering template within layouts/application
+Rendering sessions/new
+Completed in 3ms (View: 2, DB: 0) | 200 OK [http://localhost/]
+
+
+Processing SessionsController#create (for 127.0.0.1 at 2009-06-23 16:34:35) [POST]
+  Parameters: {"commit"=>"Log in", "action"=>"create", "authenticity_token"=>"wvdBaV0knaZhCBW+g9jGwbMcJB4nkhXhoO+CdOD2ueM=", "controller"=>"sessions", "login"=>"cavneb", "password"=>"[FILTERED]"}
+  [4;35;1mUser Load (0.2ms)[0m   [0mSELECT * FROM "users" WHERE ("users"."username" = 'cavneb') LIMIT 1[0m
+Redirected to http://localhost:3000/accounts
+Completed in 7ms (DB: 0) | 302 Found [http://localhost/sessions]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:34:35) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 82ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:34:53) [GET]
+  Parameters: {"action"=>"show", "id"=>"1", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.2ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Load (0.2ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts"."id" = 1 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 715ms (View: 4, DB: 0) | 200 OK [http://localhost/accounts/1]
+
+
+Processing AccountsController#show (for 127.0.0.1 at 2009-06-23 16:34:56) [GET]
+  Parameters: {"action"=>"show", "id"=>"2", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts"."id" = 2 AND ("accounts".user_id = 1)) [0m
+Rendering template within layouts/application
+Rendering accounts/show
+Completed in 764ms (View: 1, DB: 1) | 200 OK [http://localhost/accounts/2]
+
+
+Processing AccountsController#index (for 127.0.0.1 at 2009-06-23 16:34:59) [GET]
+  Parameters: {"action"=>"index", "controller"=>"accounts"}
+  [4;36;1mUser Load (0.3ms)[0m   [0;1mSELECT * FROM "users" WHERE ("users"."id" = 1) [0m
+Rendering template within layouts/application
+Rendering accounts/index
+  [4;35;1mAccount Load (0.3ms)[0m   [0mSELECT * FROM "accounts" WHERE ("accounts".user_id = 1) [0m
+Completed in 14ms (View: 4, DB: 1) | 200 OK [http://localhost/accounts]
